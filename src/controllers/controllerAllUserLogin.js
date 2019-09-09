@@ -2,7 +2,11 @@ const userLogin = require ('../model/modelSchema')
 
 module.exports = {
     async resgiter(res,req){
-        const userCreate = await userLogin.create(req.body)
-        return req.send('TEste')
+        userLogin.create({
+            name: 'Eduardo',
+            email: 'eduh.cavalcanti@hotmail.com',
+            password: 'eduardo123'
+        })
+        return req.send('Testando banco!')
     }
-}
+} 
