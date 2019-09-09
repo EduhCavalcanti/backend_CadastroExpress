@@ -1,12 +1,20 @@
-const userLogin = require ('../model/modelSchema')
+const userModel = require('../model/modelSchema')
 
 module.exports = {
-    async resgiter(res,req){
-        userLogin.create({
-            name: 'Eduardo',
-            email: 'eduh.cavalcanti@hotmail.com',
-            password: 'eduardo123'
-        })
-        return req.send('Testando banco!')
-    }
-} 
+
+  async resgiter(req, res) {
+    const user = await userModel.create(req.body)
+
+    return res.json(user)
+  },
+
+  async all(req, res) {
+    const allUser = await userModel.find()
+
+    return res.json(allUser)
+  }
+
+}
+
+
+
