@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/EduhCavalcanti/ProjetoSport#readme",
   "dependencies": {
-    "nodemon": "^1.19.2"
+    "express": "^4.17.1",
+    "mongoose": "^5.7.0",
+    "nodemon": "^1.19.2",
+    "schema": "^0.2.1"
   }
 }
