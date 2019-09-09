@@ -1,6 +1,7 @@
 const mongoose = require ('mongoose')
+const { Schema } = mongoose
 
-const adm = new mongoose.Schema({
+const adm = new Schema({
     name:{
         type: String,
         required: true,
@@ -13,8 +14,6 @@ const adm = new mongoose.Schema({
         type: String,
         required: true
     }
-},{
-    timestamps:true,
 })
 
-mongoose.model('modelSchema', adm)
+module.exports= new mongoose.model('ModelSchema', adm)

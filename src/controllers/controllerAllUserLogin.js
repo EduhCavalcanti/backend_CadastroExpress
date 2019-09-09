@@ -1,10 +1,8 @@
-const mongoose = require ('mongoose')
-mongoose.model('modelSchema')
+const userLogin = require ('../model/modelSchema')
 
 module.exports = {
-    resgiter(res,req){
-        const name = req.body
-        const email = req.body
-        const password = req.body
+    async resgiter(res,req){
+        const userCreate = await userLogin.create(req.body)
+        return req.send('TEste')
     }
 }
