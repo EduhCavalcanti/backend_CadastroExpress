@@ -1,0 +1,19 @@
+{
+  "name": "cs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/EduhCavalcanti/ProjetoSport.git"
+  },
+  "author": "Eduardo Cavalcanti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EduhCavalcanti/ProjetoSport/issues"
+  },
+  "homepage": "https://github.com/EduhCavalcanti/ProjetoSport#readme"
+}
