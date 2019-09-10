@@ -1,7 +1,6 @@
 const userModel = require('../model/modelSchema')
 
 module.exports = {
-
   async resgiter(req, res) {
     const user = await userModel.create(req.body)
 
