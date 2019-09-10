@@ -1,11 +1,13 @@
-const userModel = require('../model/modelSchema')
+const createUser = require ('../model/modelSchema')
+
 
 module.exports = {
   //Usa "create" para criar um usuários
-  async resgiter(req, res) {
-    const user = await userModel.create(req.body)
-
-    return res.json(user)
+  async register(req, res) {
+    const user = await createUser.create(req.body)
+    
+    return res.send(user)
+    
   },
 //Usa o find para mostrar todos os ussários cadastrados
   async all(req, res) {
