@@ -11,14 +11,21 @@ module.exports = {
     const userExists = await createUser.exists({email: body.email}) 
     if(userExists){
       throw res.status(401).json('E-mail já cadastrado!')
-      //Verifica se foi digitado um nome
+    //Verifica se foi digitado um nome
     }if(!body.name){
       throw res.status(404).json('Nome obrigatorio!')
-      //Verifica se foi digitado uma senha
+    //Verifica se foi digitado uma senha
     }if(!body.password){
       throw res.status(404).json('Senha Obrigatoria!')
+    //Verifica se foi digitado um email
+    }if(!body.email){
+      throw res.status(404).json('Email obrigatorio!')
     }
-
+    //Verificando se as senhas são parecidas
+    if(body.password !== body.password2){
+      throw res.status(404).json('Senhas incorretas!')
+    }
+    
     //Encriptação de senha 
     const passwordHash = await bcrypt.hash(body.password,10)
     body.password = passwordHash
