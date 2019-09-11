@@ -1,5 +1,4 @@
 const createUser = require ('../model/modelSchema')
-const bcrypt = require ('bcrypt')
 
 module.exports = {
   //Usa "create" para criar um usuários
@@ -26,9 +25,6 @@ module.exports = {
       throw res.status(404).json('Senhas incorretas!')
     }
     
-    //Encriptação de senha 
-    const passwordHash = await bcrypt.hash(body.password,10)
-    body.password = passwordHash
     //Criação de usuário
     const {name , email} = await createUser.create(body)
     

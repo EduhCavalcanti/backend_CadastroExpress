@@ -1,5 +1,6 @@
+const jwt = require ('jsonwebtoken')
+const bcrypt = require ('bcrypt')
 const modelUser = require('../model/modelSchema')
-const bcrypt = require('bcrypt')
 
 //Autenticação JWT
 module.exports = {
@@ -10,6 +11,12 @@ module.exports = {
     if (!userEmail) {
       throw res.status(400).json('Você não tem cadastro!')
     }
+
+    const userPass  = await modelUser.findOne({email}).select("+password")
+    if(!await bcrypt.compare(password, userPass.password)){
+      throw res.json('Senha incorreta')
+    }
+  
     return res.json('Logado')
   }
 }
