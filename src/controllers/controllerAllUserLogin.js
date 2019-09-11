@@ -9,20 +9,20 @@ module.exports = {
     //Vai no banco de dados verificar se email já existe!
     const userExists = await createUser.exists({email: body.email}) 
     if(userExists){
-      throw res.status(400).json('E-mail já cadastrado!')
-    //Verifica se foi digitado um nome
+      return res.status(400).json('E-mail já cadastrado!')
+      //Verifica se foi digitado um nome
     }if(!body.name){
-      throw res.status(404).json('Nome obrigatorio!')
+      return res.status(404).json('Nome obrigatorio!')
     //Verifica se foi digitado uma senha
     }if(!body.password){
-      throw res.status(404).json('Senha Obrigatoria!')
+      return res.status(404).json('Senha Obrigatoria!')
     //Verifica se foi digitado um email
     }if(!body.email){
-      throw res.status(404).json('Email obrigatorio!')
+      return res.status(404).json('Email obrigatorio!')
     }
     //Verificando se as senhas são parecidas
     if(body.password !== body.password2){
-      throw res.status(404).json('Senhas incorretas!')
+      return res.status(404).json('Senhas incorretas!')
     }
     
     //Criação de usuário
