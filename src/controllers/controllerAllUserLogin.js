@@ -10,7 +10,7 @@ module.exports = {
     //Vai no banco de dados verificar se email já existe!
     const userExists = await createUser.exists({email: body.email}) 
     if(userExists){
-      throw res.status(401).json('E-mail já cadastrado!')
+      throw res.status(400).json('E-mail já cadastrado!')
     //Verifica se foi digitado um nome
     }if(!body.name){
       throw res.status(404).json('Nome obrigatorio!')
@@ -30,9 +30,9 @@ module.exports = {
     const passwordHash = await bcrypt.hash(body.password,10)
     body.password = passwordHash
     //Criação de usuário
-    const user = await createUser.create(body)
+    const {name , email} = await createUser.create(body)
     
-    return res.send(user)
+    return res.send({name, email})
 
   },
 //Usa o find para mostrar todos os ussários cadastrados
