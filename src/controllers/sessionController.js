@@ -1,6 +1,7 @@
 const jwt = require ('jsonwebtoken')
 const bcrypt = require ('bcrypt')
 const modelUser = require('../model/modelSchema')
+const auth = require ('../auth/authController')// Importando a senha do token e a data de expiração
 
 //Autenticação JWT
 module.exports = {
@@ -16,6 +17,7 @@ module.exports = {
     if(!await bcrypt.compare(password, userPass.password)){
       return res.status(401).json('Senha incorreta')
     }
+
     //Implementando JWT
     const {id, name} = userPass
     //Vai retornar o id e o nome do usuário
@@ -25,8 +27,8 @@ module.exports = {
         name,//Retorna o nome
       },
       //Aqui é gerado o token...Usa o id que é unico, e uma senha
-      token: jwt.sign({ id }, 'chave secreta',{//
-        expiresIn: '1d',//Data de expiração
+      token: jwt.sign({ id }, auth.secret,{//senha secreta que está em outra pasta
+        expiresIn: auth.expiresIn,//Data de expiração que está em outra pasta
       })
     })
   }
