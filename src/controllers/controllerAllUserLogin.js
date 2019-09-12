@@ -39,6 +39,7 @@ module.exports = {
   },
 //fazer alteração no usuário quando tiver com token OK
   async update (req, res){
+    console.log(req.userId)
     return res.json({ ok: true })
   }
 
