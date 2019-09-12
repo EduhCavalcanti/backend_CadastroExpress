@@ -5,7 +5,7 @@ const authmiddleware = require ('../middlewares/auth')
 
 const routes = express.Router()
 
-routes.post('/register', createUser.register)
+routes.post('/register', createUser.store)
 routes.get('/allusers', createUser.all)
 routes.get('/login', sessionJWT.sessionCreate)
 routes.put('/update', authmiddleware.authControll ,createUser.update)//passa primeiro o authmiddleware para autenticar o token
