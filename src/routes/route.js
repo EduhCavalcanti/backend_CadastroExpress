@@ -7,6 +7,7 @@ const routes = express.Router()
 routes.post('/register', createUser.register)
 routes.get('/allusers', createUser.all)
 routes.get('/login', sessionJWT.sessionCreate)
+routes.put('/update',createUser.update)
 
 
 module.exports = routes 

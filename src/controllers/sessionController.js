@@ -3,7 +3,7 @@ const bcrypt = require ('bcrypt')
 const modelUser = require('../model/modelSchema')
 const auth = require ('../auth/authController')// Importando a senha do token e a data de expiração
 
-//Autenticação JWT
+//Autenticação JWT e verificação de email e senha
 module.exports = {
   async sessionCreate(req, res) {
     const {email, password} = req.body

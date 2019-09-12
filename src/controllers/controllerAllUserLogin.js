@@ -37,6 +37,11 @@ module.exports = {
     //Retorna todos os usuários
     return res.json(allUser)
   },
+//fazer alteração no usuário quando tiver com token OK
+  async update (req, res){
+    return res.json({ ok: true })
+  }
+
 
 }
 
