@@ -44,9 +44,9 @@ module.exports = {
   
   //fazer alteração no usuário quando tiver com token ok quando foi passado pela rota
   async update(req, res) {
-    const { email, oldpassword } = req.body //Vai pegar o email e a senha para fazer alteração do usuário
+    const { email ,oldpassword } = req.body //Vai pegar o email e a senha para fazer alteração do usuário
     //const user = await createUser.findByPk(req.userId)// Utiliza o findByPk pra procurar o ID do usuário, que foi passado no parametro
-    const userPassOk = await createUser.findOne({email}).select('+password')
+    const userPassOk = await createUser.findOne({email}).select('+password') 
     //Logica de update de email...Se quiser mudar o email para outro
     if(email !== userPassOk.email){
     //Vai no banco de dados verificar se email já existe!
@@ -64,8 +64,7 @@ module.exports = {
     //Usuário atualizado com novos dados
     const userUp = await createUser.update(req.body)
     
-    //console.log(req.userId)//retorna o id que foi passado no req 
-    return res.json('Conta atualizada com sucesso!')
+    return res.json("Usuário Atualizado com sucesso")
   }
 
 
