@@ -46,7 +46,7 @@ module.exports = {
   async update(req, res) {
     const { email ,oldpassword } = req.body //Vai pegar o email e a senha para fazer alteração do usuário
     //const user = await createUser.findByPk(req.userId)// Utiliza o findByPk pra procurar o ID do usuário, que foi passado no parametro
-    const userPassOk = await createUser.findOne({email}).select('+password') 
+    const userPassOk = await createUser.findOne({email:email}).select('+password') 
     //Logica de update de email...Se quiser mudar o email para outro
     if(email !== userPassOk.email){
     //Vai no banco de dados verificar se email já existe!
