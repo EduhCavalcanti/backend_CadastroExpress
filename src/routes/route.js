@@ -12,8 +12,8 @@ routes.post('/register', createUser.store)
 routes.get('/allusers', createUser.all)
 routes.get('/login', sessionJWT.sessionCreate)
 routes.put('/update', authmiddleware.authControll ,createUser.update)//passa primeiro o authmiddleware para autenticar o token
-routes.post('/files', upload.single('file'),(req, res)=>{//Rota teste que vai passar img com nome 'file'
-    return res.json({ok:true})
+routes.post('/files', upload.single('file'),(req, res)=>{//Rota teste que vai passar img com nome 'file' 
+    return res.json(req.file)
 })
 
 
