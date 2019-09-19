@@ -1,7 +1,6 @@
 const mongoose = require ('mongoose')
 
 const atletas = new mongoose.Schema({
-    
     nome:{
         type: String,
         required: true
@@ -15,6 +14,12 @@ const atletas = new mongoose.Schema({
             type:String,
             require:true
         }
+    },
+    photoName:String,
+    url:String,
+    date: {
+        type: Date,
+        default: Date.now
     },
     nacionalidade:{
         type:String,
@@ -77,4 +82,6 @@ const atletas = new mongoose.Schema({
         type:String,
     }
 
-})
+});
+
+module.exports = new mongoose.model('atletasSchema', atletas)

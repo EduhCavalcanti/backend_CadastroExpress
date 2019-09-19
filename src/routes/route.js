@@ -4,10 +4,13 @@ const multerConf = require ('../config/multer')//Importa as configurações do m
 const createUser = require ('../controllers/controllerAllUserLogin')
 const sessionJWT = require ('../controllers/sessionController')
 const authmiddleware = require ('../middlewares/auth')
+const createAtlts = require ('../controllers/controllerAtleta')
 
 const routes = express.Router()
 const upload = multer(multerConf)//Passa multer e as configs dele pro upload
 
+routes.post('/registeratle', createAtlts.store)
+routes.get('/allatlets', createAtlts.all)
 routes.post('/register', createUser.store)
 routes.get('/allusers', createUser.all)
 routes.get('/login', sessionJWT.sessionCreate)
