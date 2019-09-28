@@ -1,5 +1,5 @@
-const bcrypt = require ('bcrypt')
-const createUser = require ('../model/modelSchema')
+const bcrypt = require ('bcrypt');
+const createUser = require ('../model/modelSchema');
 
 module.exports = {
   //Usa "create" para criar um usuários
@@ -22,9 +22,9 @@ module.exports = {
       return res.status(404).json('Email obrigatorio!')
     }
     //Verificando se as senhas são parecidas
-    if (body.password !== body.password2) {
-      return res.status(404).json('Senhas incorretas!')
-    }
+    // if (body.password !== body.password2) {
+    //   return res.status(404).json('Senhas incorretas!')
+    // }
     //Encriptografando senha
     const passwordHash = await bcrypt.hash(body.password, 8)
     body.password = passwordHash

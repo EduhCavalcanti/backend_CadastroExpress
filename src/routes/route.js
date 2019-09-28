@@ -9,8 +9,9 @@ const authmiddleware = require ('../middlewares/auth')
 const routes = express.Router()
 const upload = multer(multerConf)//Passa multer e as configs dele pro upload
 
-routes.post('/registeratle', createAtlts.store)
-
+routes.get('/teste',(req,res)=>{
+    return res.send('Suave')
+})
 routes.post('/register', createUser.store)
 routes.get('/allusers', createUser.all)
 routes.get('/login', sessionJWT.sessionCreate)
